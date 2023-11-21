@@ -10,7 +10,7 @@ buildscript {
 }
 
 plugins {
-    id "net.serenity-bdd.serenity-gradle-plugin" version "${serenityCoreVersion}"
+    id "net.serenity-bdd.serenity-gradle-plugin" version "${serenityCoreVersion}" apply(false)
     id 'java'
     id 'eclipse'
     id 'idea'
@@ -41,6 +41,7 @@ dependencies {
     testImplementation 'org.junit.platform:junit-platform-suite-api:1.10.1'
     testImplementation 'org.junit.platform:junit-platform-suite:1.10.1'
     testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.14.0'
+    implementation group: 'tech.grasshopper', name: 'extentreports-cucumber7-adapter', version: '1.7.0'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
@@ -68,11 +69,5 @@ test {
     systemProperties System.getProperties()
 }
 
-serenity {
-    testRoot = "com.domain.runners"
-    requirementsBaseDir = "src/test/resources/features"
-    reports = ["single-page-html"]
-}
-
 gradle.startParameter.continueOnFailure = true
-test.finalizedBy(aggregate)
+

@@ -11,8 +11,8 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.domain.stepdefinitions")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@SearchGoogle")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:,json:target/cucumber-reports.json,pretty")
 @ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
 
-public class TestRunerCucumber {
+public class TestRuner {
 }
