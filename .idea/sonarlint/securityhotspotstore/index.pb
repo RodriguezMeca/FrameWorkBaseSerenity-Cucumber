@@ -31,3 +31,9 @@ _
 /src/main/java/co/domain/utilidades/Esperar.java,9\6\96e2219a808f9738df5ea00945b62f5debff1f9d
 b
 2src/main/java/co/domain/interacciones/Validar.java,1\5\15ec4e4e3801ebbdc67ad0d0502a323c97a325bf
+]
+-src/main/java/co/domain/utilidades/Hooks.java,2\1\21a8410b987dd82cc48ded9be4880de9e4e1e374
+w
+Gsrc/test/java/com/domain/stepdefinitions/SearchWordStepDefinitions.java,1\9\190d3adc5ab3f1a1b6706955c0dfdea08de30bbc
+_
+/src/test/java/com/domain/runners/TestRuner.java,b\c\bcb39da0ca886960561de330ce175e5decab7a40

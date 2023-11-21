@@ -3,7 +3,6 @@ package com.domain.runners;
 import co.domain.interacciones.Validar;
 import co.domain.tareas.pagina_logueo.BuscarLaPalabra;
 import co.domain.tareas.pagina_logueo.Navegador;
-import co.domain.utilidades.Hooks;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,8 +14,8 @@ import static co.domain.utilidades.Hooks.actorInit;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-class GoogleSearchTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GoogleSearchTest.class);
+class TestRunerSerenity {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestRunerSerenity.class);
 
     @Test
     @DisplayName("Search word in Google")
