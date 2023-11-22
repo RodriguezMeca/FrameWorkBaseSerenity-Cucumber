@@ -1,19 +1,19 @@
 package co.domain.utilidades;
 
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.BeforeStep;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.Before;
+import io.cucumber.java.ParameterType;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class Hooks {
-
-    private static Scenario scenario;
     static Actor actor;
 
     @Managed
@@ -22,37 +22,17 @@ public class Hooks {
     private Hooks() {
     }
 
-    public static Actor actorInit(String user) {
-        actor = Actor.named(user);
-        actor.can(BrowseTheWeb.with(driver));
-        return actor;
-    }
-    @BeforeStep
-    public void beforeScenario(Scenario scenario) {
-        setScenario(scenario);
+    public static Actor actor(String user) {
+        setTheStage(new OnlineCast());
+        return theActorCalled(user).can(BrowseTheWeb.with(getDriver()));
     }
 
-    @AfterStep
-    public static void takeScreenShot(Scenario scenario) {
-        if (scenario.isFailed()) {
-            scenario.log("El escenario fallo, refiérase a la imagen");
-            final byte [] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","image");
-        }
+    public static WebDriver getDriver() {
+        return driver;
     }
 
-    public static void logValueToReport(String message, int valueToLog) {
-        Scenario scenario = getScenario();
-        scenario.log(message + valueToLog);
-    }
-
-
-    public static Scenario getScenario() {
-        return scenario;
-    }
-
-    public static void setScenario(Scenario currentScenario) {
-        scenario = currentScenario;
+    public static void showReport(String title, String message) {
+        Serenity.recordReportData().withTitle(title).andContents(message);
     }
 
 }

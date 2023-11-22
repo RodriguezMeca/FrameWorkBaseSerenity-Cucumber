@@ -1,18 +1,15 @@
 package com.domain.runners;
-import net.serenitybdd.junit5.SerenityJUnit5Extension;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.suite.api.*;
 
-import static io.cucumber.junit.platform.engine.Constants.*;
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
 
-@Suite
-@IncludeEngines("cucumber")
-@ExtendWith(SerenityJUnit5Extension.class)
-@SelectClasspathResource("features")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.domain.stepdefinitions")
-@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@SearchGoogle")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:,json:target/cucumber-reports.json,pretty")
-@ConfigurationParameter(key = SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
-
-public class TestRuner {
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        features = "src/test/resources/features",
+        glue = "com.domain.stepdefinitions",
+        tags = "@SearchGoogle",
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        plugin = "pretty")
+class TestRunner {
 }
