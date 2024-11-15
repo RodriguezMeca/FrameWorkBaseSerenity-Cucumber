@@ -1,12 +1,11 @@
 buildscript {
-    ext.serenityCoreVersion = '3.7.0'
     repositories {
         maven {
             url = uri("https://plugins.gradle.org/m2/")
         }
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:${serenityCoreVersion}")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:3.2.1")
     }
 }
 
@@ -30,11 +29,12 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 ext {
+    serenityCoreVersion = '4.2.1'
     junitVersion = '4.13.1'
     lombokVersion = '1.18.22'
     log4j2Version = '2.20.0'
@@ -44,6 +44,7 @@ ext {
     jlineVersion = '3.21.0'
     wireshamVersion = '0.7'
     fakerVersion = '1.0.2'
+    webdriverManagerVersion = '5.9.2'
 }
 
 dependencies {

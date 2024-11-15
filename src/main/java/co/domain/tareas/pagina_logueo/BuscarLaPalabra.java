@@ -6,7 +6,7 @@ import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.thucydides.core.annotations.Step;
+import net.serenitybdd.annotations.Step;
 
 import static co.domain.constantes.PaginaLogueo.*;
 

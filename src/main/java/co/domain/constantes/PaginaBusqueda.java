@@ -6,6 +6,6 @@ import org.openqa.selenium.By;
 
 public class PaginaBusqueda extends PageObject {
 
-    public static final Target MSN_RESULT = Target.the("Busqueda Colombia")
-            .located(By.xpath("//span[@role='heading']"));
+    public static final Target MSN_RESULT = Target.the("search Ecuador")
+            .located(By.xpath("//div[@role='heading'][normalize-space()='Ecuador']"));
 }
